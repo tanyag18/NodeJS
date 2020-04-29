@@ -1,4 +1,16 @@
 const fs=require('fs')
+var http = require('http');
+const normalizePort = require('normalize-port');
+
+const PORT =normalizePort(process.env.PORT || 8000);
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World! I am here through google engine');
+}).listen(PORT, () => {
+    console.log(`Application listening on ${PORT}`)
+  });
+
+
 
 function loadJSON(filename=''){
     if(fs.existsSync(filename)){
